@@ -87,6 +87,16 @@ up-master ===> upstream/master
 如果想部署自己私有库里面的项目，直接拉取私有库的master分支即可。
 
 ## 其他说明
+### 二进制文件冲突的解决
+文本冲突可以直接编辑解决，如果是二进制文件，比如图片发生冲突的时候，使用以下命令选择保留哪一个文件。
+```shell
+// 使用 --ours 参数保留当前分支版本的文件
+[root@localhost project_dir]# git checkout --ours /path/to/file
+​
+// 使用 --theirs 参数保留并入分支版本的文件
+[root@localhost project_dir]# ​git checkout --theirs /path/to/file
+```
+### token 认证 
 当你把自己开发的代码推送到私有库的时候，可能推不上去,
 可能的原因是:
 ```
