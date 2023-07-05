@@ -25,6 +25,7 @@ centos7系统默认安装的git版本是1.8.3，下面部署过程中会有点�
 
 ## 2. 本地初始化git项目
 ```shell
+[root@localhost ~]# mkdir project_dir
 [root@localhost ~]# cd project_dir
 [root@localhost project_dir]# git init
 ```
@@ -53,13 +54,13 @@ centos7系统默认安装的git版本是1.8.3，下面部署过程中会有点�
 // 即实现本地master分支和origin/master分支的绑定
 [root@localhost project_dir]# git push -u origin master
 ```
-通过上面的操作，我们的分支有了如下的对应关系：
+通过上面的操作，本地分支和远程分支有了如下的对应关系：
 
 master ===> origin/master
 
 up-master ===> upstream/master
 
-## 5. 定期拉取upstream/master代码合并到本地master分支
+## 5. 定期拉取upstream/master代码后合并到本地master分支
 ```shell
 // 切换到up-master分支
 [root@localhost project_dir]# git checkout up-master
@@ -69,8 +70,8 @@ up-master ===> upstream/master
 [root@localhost project_dir]# git checkout master
 // 将本地 up-master 分支的代码合并到 master 分支
 [root@localhost project_dir]# git merge up-master
-
 ```
+
 ## 6. 本地初始化git项目
 
 ## 7. 本地初始化git项目
