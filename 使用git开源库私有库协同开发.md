@@ -34,6 +34,7 @@ centos7系统默认安装的git版本是1.8.3，下面部署过程中会有点�
 ```shell
 // 添加私有仓库，别名为 origin
 [root@localhost project_dir]# git remote add origin https://私有库地址
+
 // 添加开源仓库，别名为 upstream
 [root@localhost project_dir]# git remote add upstream https://开源库地址
 ```
@@ -42,14 +43,19 @@ centos7系统默认安装的git版本是1.8.3，下面部署过程中会有点�
 ```shell
 // 拉取开源库(upstream)的master分支到本地
 [root@localhost project_dir]# git fetch upstream master
+
 // 此时本地工作目录是空的, checkout到 upstream/master
 [root@localhost project_dir]# git checkout master
+
 // 在本地创建up-master分支并将工作目录切换到此分支
 [root@localhost project_dir]# git checkout -b up-master
+
 // 将本地的up-master分支和开源库(upstream)的master分支绑定
 [root@localhost project_dir]# git branch -u upstream/master
+
 // 将本地工作目录切换回master分支
 [root@localhost project_dir]# git checkout master
+
 // 将本地master分支推送到私有库(origin)
 // 即实现本地master分支和origin/master分支的绑定
 [root@localhost project_dir]# git push -u origin master
@@ -64,10 +70,13 @@ up-master ===> upstream/master
 ```shell
 // 切换到up-master分支
 [root@localhost project_dir]# git checkout up-master
+
 // 拉取代码, 注意一定要先切换到up-master分支再拉取代码
 [root@localhost project_dir]# git pull upstream master
+
 // 切换到master分支
 [root@localhost project_dir]# git checkout master
+
 // 将本地 up-master 分支的代码合并到 master 分支
 [root@localhost project_dir]# git merge up-master
 ```
