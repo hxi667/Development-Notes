@@ -33,10 +33,10 @@ centos7系统默认安装的git版本是1.8.3，下面部署过程中会有点�
 ## 3. 添加远程仓库到本地
 ```shell
 // 添加私有仓库，别名为 origin
-[root@localhost project_dir]# git remote add origin https://私有库地址
+[root@localhost project_dir]# git remote add origin https://[私有库地址]
 
 // 添加开源仓库，别名为 upstream
-[root@localhost project_dir]# git remote add upstream https://开源库地址
+[root@localhost project_dir]# git remote add upstream https://[开源库地址]
 ```
 
 ## 4. 在本地开发库中创建master和up-master分支并和远端的master分支绑定
@@ -87,7 +87,26 @@ up-master ===> upstream/master
 如果想部署自己私有库里面的项目，直接拉取私有库的master分支即可。
 
 ## 其他说明
-当你把自己开发的代码推送到私有库的时候，可能推不上去
+当你把自己开发的代码推送到私有库的时候，可能推不上去,
+可能的原因是:
+```
+remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+```
+从2021年8月13日起，github不再支持账号密码的push方式，你需要在github上设置个人token，然后，
+```shell
+[root@localhost project_dir]# git remote set-url origin https://[your_token]@github.com/[USERNAME]/[REPO].git
+```
+
+另，
+
+取消代理：
+```shell
+// 取消http代理
+[root@localhost project_dir]# git config --global --unset http.proxy
+
+// 取消https代理
+[root@localhost project_dir]# git config --global --unset https.proxy
+```
 
 # 感谢
 知乎ID: 不用上班的程序员
