@@ -7,7 +7,7 @@
 <div align=center><img src="./assets/git私有库开源库协同开发图.png"/></div>
 
 
-整个逻辑如上图所示，为了简单问题的表述，我们假设只从开源库的master分支拉取源代码。
+整个逻辑如上图所示，为了简化问题的表述，我们假设只从开源库的master分支拉取源代码。
 私有库只有一个master分支，本地开发库有两个分支，分别是master和up-masher。
 本地开发库的master和up-master分支分别绑定远端私有库和开源库的master分支。
 
