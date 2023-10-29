@@ -81,7 +81,7 @@ up-master ===> upstream/master
 [root@localhost project_dir]# git merge up-master
 ```
 合并分支的时候如果出现代码冲突，有冲突的文件会被git标红, 通过 git status 命令可以看到未解决冲突的文件列表，
-手动解决完这些冲突后再执行 git add . 命令和 git commit 进行一次常规的提交即可。
+手动解决完这些冲突后再执行 git add . 命令和 git commit -m "message"， git push 进行一次常规的提交即可。
 
 ## 6. 生产环境部署
 如果想部署自己私有库里面的项目，直接拉取私有库的master分支即可。
